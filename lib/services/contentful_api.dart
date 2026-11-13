@@ -33,7 +33,8 @@ class ContentfulApi implements PickSource {
     final response = await http.get(uri);
 
     if (response.statusCode != 200) {
-      throw Exception('Failed to load picks: ${response.statusCode}');
+      throw Exception('Failed to load picks: ${response.statusCode} - ${response.body}',)
+      ;
     }
 
     final data = jsonDecode(response.body);
